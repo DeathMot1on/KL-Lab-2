@@ -1,0 +1,42 @@
+Hello, wonderful DEV community!
+
+My name is Amy, and I’m a product manager here at Forem. I started my journey here this past August so if we haven’t interacted on DEV before, it’s great to meet you!
+
+Today, I wanted to share an update about a topic that impacts anyone who regularly visits and/or writes on DEV – our home feed and the algorithm behind it.
+
+Addressing some important concerns
+We have heard our community's frustrations about our feed. Some examples include your feed not reflecting tag preferences, too many listicles, and more recent posts rather than relevant posts. We have come across posts by community members exploring how to improve their experience of the feed with a handful of unofficial workarounds.
+
+While the ingenuity of our community doesn't surprise us (and in fact, delights us), we don't think you should have to find "hacks" in order to make this space work as you expect.
+
+Our commitment on continuous improvement
+We strive to make DEV an enjoyable place for our members. However, this is not always easy. To solve these problems effectively, we first need to know what might contribute to these problems. As some of you probably already know, our feed algorithm is complex. It is often difficult for us, as core team members at Forem, to digest what is going on in it. This challenge makes it difficult for the community to chime in, as it hasn’t been clear what factors are diminishing our feed’s quality. As technology evolves over time naturally, we need to untangle and refactor different layers of decision making in our software so as to pinpoint the underlying root cause(s).
+
+We are committed to making a great feed experience while being transparent in how we work. The first step is for us to shed light on how our algorithm works to ensure that the code base is accessible and readable for our community. This post, the changes to our feed algorithm, plus all the great refactoring work going into it by Jeremy are our first baby steps towards this commitment. We also renamed the name of the default sorting on your feed from “Feed” to “Relevant” for clarity.
+
+A peek at how the DEV feed works
+Without further ado, here is a high-level summary of how our feed algorithm works.
+
+When deciding which posts should be in your home feed, four things come into play:
+
+The freshness of a post (how new is a post?)
+The relevance of a post (relevance as in, do you follow any of the tags on this post? Do you follow the author?)
+The popularity of a post (how many comments have been left? How many reactions have been given?)
+Moderator feedback for a post (has this post been reported?)
+After a series of calculations based on the above, we will then assign a “score” to each post. Then, the posts with the highest scores are delivered to your feed.
+
+Possible causes of DEV’s feed algorithm quality issues
+After some investigation, we realized we are unintentionally giving reactions too much weight when calculating the aforementioned score of a post. It manifests itself in the following ways:
+
+It’s really easy to game the algorithm by farming reactions
+Sometimes too many irrelevant posts show up in feed because they have gotten lots of reactions
+As a consequence, there are too many irrelevant posts to a point that you don’t feel like your feed is relevant to you anymore
+What we have changed so far
+We are launching an A/B test in our algorithm, with the treatment of suppressing the effect of reactions in calculation. We will start with 20% of our users, and observe the performance to decide whether it is ready to be rolled out to more users – or if it requires some tweaks.
+
+We also have identified several other opportunities to improve the algorithm, and we see this as an iterative effort. In other words, you’ll be hearing from me again with more updates and information about our feed as we work on improving it!
+
+What do you think?
+We would love to hear your thoughts on anything mentioned above. Do you think our fixes will address the issues you have encountered on your home feed? Are there other problems you are experiencing with the feed? Let me know in the comments below!
+
+Finally, on behalf of the entire Forem team, I want to thank you not only for being a member of DEV, but also for being active and vocal with your frustrations and the changes you’d like to see here. We appreciate your patience and commitment to being stewards of this community.
